@@ -9,6 +9,12 @@ var htmlreplace = require('gulp-html-replace');
  
 
 
+function error(e) {
+
+  console.log(e.toString());
+}
+
+
 //perform linting for css files
 gulp.task('css-lint', function() {
 
@@ -24,8 +30,10 @@ gulp.task('minify-css', function() {
 
   return gulp.src(['styles/normalizer.css', 'styles/style.css'])
 
-    .pipe(concat('styles.min.css'))
-    .pipe(cleanCSS())
+    .pipe(concat('styles.min.css')).on('error', error)
+    .pipe(cleanCSS()).on('error', error)
+
+    //write to destination dir
     .pipe(gulp.dest('dist'));
 });
 
@@ -35,8 +43,11 @@ gulp.task('minify-css', function() {
 gulp.task('minify-js', function() {
 
     return gulp.src(['js/game.js', 'js/app.js'])
+
       .pipe(concat('bundle.min.js'))
-      .pipe(uglify())
+      .pipe(uglify()).on('error', error)
+
+      //write to destination dir
       .pipe(gulp.dest('dist'));
 })
 
@@ -46,13 +57,16 @@ gulp.task('minify-html', function() {
 
   return gulp.src('*.html')
 
-   //change URL here
+   //change URL here to minified css/js files
    .pipe(htmlreplace({
     'css': 'styles.min.css',
     'js': 'bundle.min.js'
    }))
 
+   //get rid of white space
   .pipe(htmlmin({collapseWhitespace: true}))
+
+   //write to destination dir
   .pipe(gulp.dest('dist'));
 
 });

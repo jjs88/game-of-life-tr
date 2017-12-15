@@ -1,7 +1,6 @@
 var Game = (function() {
 
-
-
+    
     'use strict';
 
     //private variables accessible within function
