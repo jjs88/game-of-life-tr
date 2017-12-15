@@ -1,0 +1,29 @@
+{
+  "name": "game-of-life",
+  "version": "1.0.0",
+  "description": "This is Conway's Game of Life built for Bov Academy chapter project.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjs88/game-of-life.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjs88/game-of-life/issues"
+  },
+  "homepage": "https://github.com/jjs88/game-of-life#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-csslint": "^1.0.0",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^2.0.0"
+  }
+}
