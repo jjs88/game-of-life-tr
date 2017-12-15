@@ -82,13 +82,13 @@ var Game = (function() {
 
         id = requestAnimationFrame(function() {
             runGame();
-        })
+        });
     }
 
 
     function getOneOrZero() {
 
-        var random = Math.random(); //get a random number 0-1
+        let random = Math.random(); //get a random number 0-1
 
         random = (random * 2); //convert it to an int
 
@@ -98,7 +98,7 @@ var Game = (function() {
 
     function createArray(rows) { 
         //need to create array with inner array before we can turn it into a jagged array aka 2d array
-        var arr = [];
+        let arr = [];
 
         for (var i = 0; i < rows; i++) {
             arr[i] = [];
@@ -152,9 +152,7 @@ var Game = (function() {
     function updateGrid() {
 
        // start the loops at 1 to avoid the edges and end at -1 as well otherwise errors 
-        var fate;
-        var state;
-        var cnt;
+        let fate,state,cnt;
 
         //x coordinate values
         for(var x = 1; x < xCoord-1; x++) {
@@ -233,7 +231,7 @@ var Game = (function() {
     
     function getNeighborCnt(grid, x, y) {
 
-        var cnt = 0;
+        let cnt = 0;
 
         // perform logic to get the number of dead or alive neighbor pixels
 
@@ -287,8 +285,8 @@ var Game = (function() {
 
     // API to expose to global
     return {
-        init:init
-    }
+        init
+    };
 
 
     // example call 

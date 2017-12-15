@@ -24,7 +24,11 @@
     "gulp-error": "^0.1.4",
     "gulp-html-replace": "^1.6.2",
     "gulp-htmlmin": "^3.0.0",
+    "gulp-jshint": "^2.0.4",
+    "gulp-standardize": "^1.1.0",
     "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^0.1.9",
+    "jshint": "^2.9.5",
     "pump": "^2.0.0"
   }
 }

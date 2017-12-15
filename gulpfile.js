@@ -1,12 +1,16 @@
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
+// var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var pump = require('pump');
 var htmlmin = require('gulp-htmlmin');
 var csslint = require('gulp-csslint');
 var concat = require('gulp-concat');
 var htmlreplace = require('gulp-html-replace');
- 
+var jshint = require('gulp-jshint');
+
+
+// use gulp-jasmine-browser for unit testing
 
 
 function error(e) {
@@ -53,6 +57,19 @@ gulp.task('minify-js', function() {
 
 
 
+//js linter
+gulp.task('js-lint', function() {
+  return gulp.src('js/*.js')
+    .pipe(jshint(
+      {
+        esversion:6
+      }
+    ))
+    .pipe(jshint.reporter('default'));
+});
+
+
+
 gulp.task('minify-html', function() {
 
   return gulp.src('*.html')
@@ -74,7 +91,7 @@ gulp.task('minify-html', function() {
 
 
 //combine tasks to run in one
-gulp.task('build', ['css-lint','minify-css', 'minify-js', 'minify-html'], function() {
+gulp.task('build', ['css-lint','js-lint','minify-css', 'minify-js', 'minify-html'], function() {
     console.log('Build complete.');
 })
 
